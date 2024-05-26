@@ -17,7 +17,7 @@ jobs:
           python-version: 3.11
 
       - name: Instalar dependências
-        run: pip install boto3
+        run: pip install -r ./app/requirements.txt
 
       - name: Enviar mensagem para SQS
         run: |
