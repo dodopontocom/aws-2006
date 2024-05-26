@@ -1,0 +1,27 @@
+name: Enviar mensagem para SQS
+on:
+  push:
+    branches:
+      - feature/actions
+
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+
+      - name: Configurar ambiente Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+
+      - name: Instalar dependências
+        run: pip install boto3
+
+      - name: Enviar mensagem para SQS
+        run: |
+          python ./app/app.py
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
