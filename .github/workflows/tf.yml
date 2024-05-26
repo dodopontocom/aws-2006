@@ -2,7 +2,7 @@ name: Criar recursos AWS com Terraform
 on:
   push:
     branches:
-      - feature/actions
+      - feature/actions-2
 
 jobs:
   criar-recursos:
@@ -16,6 +16,19 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.0.0
+      
+      - name: Setup Terraform Backend
+        working-directory: ./terraform/
+        run: |
+          cat > backend.tf << EOF
+          terraform {
+            backend "s3" {
+              bucket = var.tf_bucket_name
+              key    = "tf-state"
+              region = var.regioin
+            }
+          }
+          EOF
 
       - name: Inicializar Terraform
         working-directory: ./terraform/
