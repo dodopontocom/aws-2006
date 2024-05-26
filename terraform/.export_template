@@ -2,7 +2,7 @@
 #source - service account keys
 
 export TF_VAR_region="sa-east-1"
-export TF_VAR_queue_name="q2"
-export TF_VAR_lambda_name="l2"
+export TF_VAR_queue_name="qtres"
+export TF_VAR_lambda_name="ltres"
 #export TF_VAR_AWS_ACCESS_KEY_ID=""
 #export TF_VAR_AWS_SECRET_ACCESS_KEY=""

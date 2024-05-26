@@ -19,12 +19,18 @@ jobs:
 
       - name: Inicializar Terraform
         working-directory: ./terraform/
-        run: terraform init
+        run: |
+          source ./.export_template
+          terraform init
 
       - name: Planejar recursos
         working-directory: ./terraform/
-        run: terraform plan
+        run: |
+          source ./.export_template
+          terraform plan
 
       - name: Aplicar recursos
         working-directory: ./terraform/
-        run: terraform apply -auto-approve
+        run: |
+          source ./.export_template
+          terraform apply -auto-approve
