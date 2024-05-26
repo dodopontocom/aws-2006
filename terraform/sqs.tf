@@ -1,3 +1,3 @@
 resource "aws_sqs_queue" "myQ" {
-  name                      = "myQ"
+  name                      = var.queue_name
 }

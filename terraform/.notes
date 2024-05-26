@@ -1,0 +1,5 @@
+in case of identity caller signature expired, run:
+sudo ntpdate pool.ntp.org
+
+sample from
+https://docs.aws.amazon.com/lambda/latest/dg/example_serverless_SQS_Lambda_section.html
