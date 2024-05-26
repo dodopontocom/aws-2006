@@ -20,12 +20,13 @@ jobs:
       - name: Setup Terraform Backend
         working-directory: ./terraform/
         run: |
+          source ./.export_template
           cat > backend.tf << EOF
           terraform {
             backend "s3" {
-              bucket = var.tf_bucket_name
+              bucket = ${TF_VAR_tf_bucket_name}
               key    = "tf-state"
-              region = var.regioin
+              region = ${TF_VAR_regioin}
             }
           }
           EOF
