@@ -3,9 +3,9 @@
 
 export aws_account_id="654654328943"
 export TF_VAR_region="sa-east-1"
-export TF_VAR_queue_name="queue_seven"
-export TF_VAR_lambda_name="lambda_seven"
-export TF_VAR_lambda_role_name="role_lambda-v7"
+export TF_VAR_queue_name="queue_8"
+export TF_VAR_lambda_name="lambda_8"
+export TF_VAR_lambda_role_name="role_lambda-v8"
 export TF_VAR_tf_bucket_name="abctfstate"
 #export TF_VAR_AWS_ACCESS_KEY_ID=""
 #export TF_VAR_AWS_SECRET_ACCESS_KEY=""
