@@ -21,10 +21,10 @@ jobs:
           python-version: 3.11
 
       - name: Instalar dependências
-        if: "contains( env.commit_msg, '[deploy-app]')"
+        if: "contains(github.event.head_commit.message, '[deploy-app]')"
         run: pip install -r ./app/requirements.txt
 
       - name: Enviar mensagem para SQS
-        if: "contains( env.commit_msg, '[deploy-app]')"
+        if: "contains(github.event.head_commit.message, '[deploy-app]')"
         run: |
           python ./app/app.py
