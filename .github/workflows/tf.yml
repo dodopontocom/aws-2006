@@ -46,7 +46,7 @@ jobs:
         source ./.export_template
         terraform apply -auto-approve
 
-    - name: Aplicar recursos
+    - name: Destruir recursos
       if: "contains( env.commit_msg, '[terraform-destroy]')"
       working-directory: ./terraform/
       run: |
