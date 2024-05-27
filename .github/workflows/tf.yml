@@ -24,7 +24,6 @@ jobs:
         terraform_version: 1.0.0
 
     - name: Inicializar Terraform
-      if: "contains( env.commit_msg, '[terraform-apply]')"
       working-directory: ./terraform/
       run: |
         source ./.export_template
