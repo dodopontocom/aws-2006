@@ -5,10 +5,15 @@ resource "aws_lambda_function" "lambda" {
   runtime       = "python3.11"
   filename      = "files/lambda.zip"
   timeout       = 10
+  depends_on    = [aws_cloudwatch_log_group.lambda_log_group]
+}
+
+resource "aws_cloudwatch_log_group" "lambda_log_group" {
+  name = "/aws/lambda/${var.lambda_name}"
 }
 
 resource "aws_iam_role" "lambda_role" {
-  name = "lambda-role"
+  name = var.lambda_role_name
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -23,7 +28,7 @@ resource "aws_iam_role" "lambda_role" {
 }
 
 resource "aws_iam_role_policy_attachment" "role-policy-attachment" {
-  for_each   = toset([
+  for_each = toset([
     "arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole",
     "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
   ])
