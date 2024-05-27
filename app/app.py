@@ -7,7 +7,7 @@ queue_url = 'https://sqs.'+ region +'.amazonaws.com/' + account_id + '/' + queue
 
 sqs = boto3.client('sqs', region_name=region)
 
-message_body = '{"nome":"Elisa","idade":03}'
+message_body = '{"nome":"Rodolfo","idade":38}'
 
 response = sqs.send_message(QueueUrl=queue_url, MessageBody=message_body)
 print(f'Mensagem enviada com sucesso! ID da mensagem: {response["MessageId"]}')
