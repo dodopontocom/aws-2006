@@ -58,7 +58,8 @@ jobs:
 
     - name: Set output
       id: set-output
-      run: echo "::set-output name=tf-apply::success"
+      #run: echo "::set-output name=tf-apply::success"
+      run: echo "{tf-apply}={success}" >> $GITHUB_OUTPUT
 
     - name: Prompt Message
       run: echo "be aware of the commit flags"
