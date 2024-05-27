@@ -1,7 +1,7 @@
 name: Enviar mensagem para SQS
 on:
   workflow_run:
-    workflows: ["execute-tf-flow"]
+    workflows: ["Executar flow AWS com Terraform"]
     branches:
       - wip
       - feature/wip
