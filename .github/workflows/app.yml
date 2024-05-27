@@ -2,9 +2,6 @@ name: app
 on:
   workflow_run:
     workflows: ["infra"]
-    branches:
-      - wip
-      - feature/wip
     types:
       - completed
 
