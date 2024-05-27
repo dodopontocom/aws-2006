@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - feature/actions-2
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
   criar-recursos:
@@ -18,6 +20,7 @@ jobs:
           terraform_version: 1.0.0
 
       - name: Inicializar Terraform
+        if: "contains( env.commit_msg, '[terraform-apply]')"
         working-directory: ./terraform/
         run: |
           source ./.export_template
@@ -42,6 +45,7 @@ jobs:
           TF_VAR_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Aplicar recursos
+        if: "contains( env.commit_msg, '[terraform-apply]')"
         working-directory: ./terraform/
         run: |
           source ./.export_template
