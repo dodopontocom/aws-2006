@@ -52,3 +52,10 @@ jobs:
       run: |
         source ./.export_template
         terraform destroy -auto-approve
+
+    - name: Prompt Message
+      if: "contains(github.event.head_commit.message, '[terraform]')"
+      working-directory: ./terraform/
+      run: |
+        source ./.export_template
+        echo "be aware of the commit flags"
