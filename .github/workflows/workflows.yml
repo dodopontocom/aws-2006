@@ -61,22 +61,22 @@ jobs:
     runs-on: ubuntu-latest
     needs: execute-tf-flow
     steps:
-      - name: Checkout código
-        uses: actions/checkout@v2
+    - name: Checkout código
+      uses: actions/checkout@v2
 
-      - name: Configurar ambiente Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.11
+    - name: Configurar ambiente Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
 
-      - name: Instalar dependências
-        if: ("contains(github.event.head_commit.message, '[deploy-app]')" && "contains(github.event.head_commit.message, '[terraform-apply]')")
-        run: pip install -r ./app/requirements.txt
+    - name: Instalar dependências
+      if: ("contains(github.event.head_commit.message, '[deploy-app]')" && "contains(github.event.head_commit.message, '[terraform-apply]')")
+      run: pip install -r ./app/requirements.txt
 
-      - name: Enviar mensagem para SQS
-        if: ("contains(github.event.head_commit.message, '[deploy-app]')" && "contains(github.event.head_commit.message, '[terraform-apply]')")
-        run: |
-          python ./app/app.py
+    - name: Enviar mensagem para SQS
+      if: ("contains(github.event.head_commit.message, '[deploy-app]')" && "contains(github.event.head_commit.message, '[terraform-apply]')")
+      run: |
+        python ./app/app.py
 
-      - name: Prompt Message
-        run: echo "be aware of the commit flags"
+    - name: Prompt Message
+      run: echo "be aware of the commit flags"
