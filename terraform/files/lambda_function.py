@@ -4,7 +4,7 @@ def lambda_handler(event, context):
     for record in event['Records']:
         # Process each message
         body = record['body']
-        print(f"Received message: {body}")
+        print(f"Mensagem recebida: {body}")
 
     return {
         'statusCode': 200,
