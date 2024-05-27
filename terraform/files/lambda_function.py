@@ -1,4 +1,4 @@
-import json, telegram, os
+import json, telegram, os, asyncio
 
 def lambda_handler(event, context):
     for record in event['Records']:
@@ -9,7 +9,7 @@ def lambda_handler(event, context):
     chat_id = os.environ['TELEGRAM_CHAT_ID']
     bot = telegram.Bot(token=bot_token)
 
-    bot.send_message(chat_id=chat_id, text=f"Processamento bem-sucedido: {body}")
+    asyncio.run(bot.send_message(chat_id=chat_id, text=f"Processamento bem-sucedido: {body}"))
 
     return {
         'statusCode': 200,
