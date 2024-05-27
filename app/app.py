@@ -2,7 +2,7 @@ import boto3, os
 
 region = os.environ['TF_VAR_region']
 account_id = os.environ['aws_account_id']
-queue_name = os.environ['TF_VAR_sqs_queue_name']
+queue_name = os.environ['TF_VAR_queue_name']
 queue_url = 'https://sqs.'+ region +'.amazonaws.com/' + account_id + '/' + queue_name
 
 sqs = boto3.client('sqs', region_name=region)
