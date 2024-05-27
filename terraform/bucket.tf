@@ -2,7 +2,7 @@
 #  backend = "s3"
 #  config = {
 #    bucket = var.tf_bucket_name
-#    key    = "tf-state"
+#    key    = "terraform"
 #    region = var.region
 #  }
 #}
