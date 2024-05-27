@@ -1,4 +1,4 @@
-name: infra
+name: aws workflow
 on:
   push:
     branches:
