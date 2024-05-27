@@ -3,9 +3,9 @@
 
 export aws_account_id="654654328943"
 export TF_VAR_region="sa-east-1"
-export TF_VAR_queue_name="queue_ten"
-export TF_VAR_lambda_name="lambda_ten"
-export TF_VAR_lambda_role_name="role_lambda-v10"
+export TF_VAR_queue_name="queue_11"
+export TF_VAR_lambda_name="lambda_11"
+export TF_VAR_lambda_role_name="role_lambda-v11"
 export TF_VAR_tf_bucket_name="abctfstate"
 
 #export TF_VAR_telegram_chat_id=""
