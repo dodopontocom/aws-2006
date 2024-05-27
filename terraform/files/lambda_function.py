@@ -1,15 +1,15 @@
 import json, telegram, os
 
-async def lambda_handler(event, context):
+def lambda_handler(event, context):
     for record in event['Records']:
         body = record['body']
         print(f"Mensagem recebida: {body}")
     
-        bot_token = os.environ['TELEGRAM_TOKEN']
-        chat_id = os.environ['TELEGRAM_CHAT_ID']
-        bot = telegram.Bot(token=bot_token)
+    bot_token = os.environ['TELEGRAM_TOKEN']
+    chat_id = os.environ['TELEGRAM_CHAT_ID']
+    bot = telegram.Bot(token=bot_token)
 
-        await bot.send_message(chat_id=chat_id, text=f"Processamento bem-sucedido: {body}")
+    bot.send_message(chat_id=chat_id, text=f"Processamento bem-sucedido: {body}")
 
     return {
         'statusCode': 200,
