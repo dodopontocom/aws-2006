@@ -15,7 +15,7 @@ async def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps('Messages processed com sucesso!')
     }
-
+#
 # def lambda_handler(event, context):
 #     for message in event['Records']:
 #         process_message(message)
