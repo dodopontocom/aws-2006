@@ -21,8 +21,10 @@ jobs:
         working-directory: ./terraform/
         run: |
           source ./.export_template
-          terraform init -backend-config="bucket=${TF_VAR_tf_bucket_name}" -backend-config="prefix=terraform"
-          terraform init
+          terraform init \
+          -backend-config="bucket=${TF_VAR_tf_bucket_name}" \
+          -backend-config="key=terraform" \
+          -backend-config="region=${TF_VAR_region}"
 
       - name: Planejar recursos
         working-directory: ./terraform/
