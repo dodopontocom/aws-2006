@@ -20,6 +20,7 @@ def process_message(message):
         print("An error occurred")
         raise err
 
+
 # def lambda_handler(event, context):
 #     for record in event['Records']:
 #         body = record['body']
