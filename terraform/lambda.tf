@@ -7,6 +7,13 @@ resource "aws_lambda_function" "lambda" {
   source_code_hash = data.archive_file.python_lambda_package.output_base64sha256
   timeout          = 10
   depends_on       = [aws_cloudwatch_log_group.lambda_log_group]
+
+  environment {
+    variables = {
+      TELEGRAM_CHAT_ID = var.telegram_chat_id
+      TELEGRAM_TOKEN    = var.telegram_token
+    }
+  }
 }
 
 resource "aws_cloudwatch_log_group" "lambda_log_group" {

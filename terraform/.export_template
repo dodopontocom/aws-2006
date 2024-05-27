@@ -7,5 +7,9 @@ export TF_VAR_queue_name="queue_9"
 export TF_VAR_lambda_name="lambda_9"
 export TF_VAR_lambda_role_name="role_lambda-v9"
 export TF_VAR_tf_bucket_name="abctfstate"
+
+export TF_VAR_telegram_chat_id=""
+export TF_VAR_telegram_token=""
+
 #export TF_VAR_AWS_ACCESS_KEY_ID=""
 #export TF_VAR_AWS_SECRET_ACCESS_KEY=""
