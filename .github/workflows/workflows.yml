@@ -76,6 +76,7 @@ jobs:
     - name: Enviar mensagem para SQS
       if: "contains(github.event.head_commit.message, '[deploy-app]') && contains(github.event.head_commit.message, '[terraform-apply]')"
       run: |
+        source ./.export_template
         python ./app/app.py
 
     - name: Prompt Message
