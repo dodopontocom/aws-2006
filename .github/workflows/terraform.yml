@@ -1,4 +1,4 @@
-name: Executar flow AWS com Terraform
+name: infra
 on:
   push:
     branches:
