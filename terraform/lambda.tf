@@ -1,3 +1,14 @@
+resource "null_resource" "install_dependencies" {
+  provisioner "local-exec" {
+    command = "pip install -r ./files/requirements.txt -t ./files/"
+  }
+  
+  triggers = {
+    dependencies_versions = filemd5("./files/requirements.txt")
+    source_versions = filemd5("./files/lambda_function.py")
+  }
+}
+
 resource "aws_lambda_function" "lambda" {
   function_name    = var.lambda_name
   role             = aws_iam_role.lambda_role.arn
